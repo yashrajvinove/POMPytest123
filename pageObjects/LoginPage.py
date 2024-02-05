@@ -6,6 +6,10 @@ class   LoginPage:
     textbox_usermail_id="input-email"
     textbox_userpassword_id="input-password"
     button_xpath="//input[@value='Login']"
+    searchbox_xpath="(//input[@type='text'])[1]"
+    searchicon_xpath="(//button[@type='button'])[4]"
+    add_to_cart_xpath = "//span[text()='Add to Cart']"
+
 
     def  __init__(self,driver):
           self.driver=driver
@@ -25,3 +29,12 @@ class   LoginPage:
     def clickLogin(self):
         self.driver.find_element(By.XPATH,self.button_xpath).click()
 
+    def  clickSearchBox (self,searchbox):
+          self.driver.find_element(By.XPATH,self.searchbox_xpath).clear()
+          self.driver.find_element(By.XPATH,self.searchbox_xpath).send_keys(searchbox)
+
+    def clickSearchicon(self):
+        self.driver.find_element(By.XPATH,self.searchicon_xpath).click()
+
+    def clickAddtoCart(self):
+        self.driver.find_element(By.XPATH,self.add_to_cart_xpath).click()
